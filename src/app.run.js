@@ -4,11 +4,11 @@
   angular.module('helloworld')
     .config(['$locationProvider', '$httpProvider',
       function config($locationProvider, $httpProvider) {
-        // $locationProvider.html5Mode(true);
-        $locationProvider.html5Mode({
-          enabled: true,
-          requireBase: false
-        });
+        $locationProvider.html5Mode(true);
+        // $locationProvider.html5Mode({
+        //   enabled: true,
+        //   requireBase: false
+        // });
       }
     ])
     .factory('interceptor', function () {

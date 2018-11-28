@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <script src="lib/angular.js"></script>
-    <script src="lib/angular-ui-router.js"></script> -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
     <script src="//unpkg.com/angular-ui-router@0.4.2/release/angular-ui-router.js"></script>
-    <script src="helloworld.js"></script>
+
+    <script src="app.js"></script>
+    <script type="text/javascript" src="app.states.js"></script>
     <script type="text/javascript" src="src/components/users.component.js"></script>
     <script type="text/javascript" src="src/components/users.controller.js"></script>
     <script type="text/javascript" src="src/app.run.js"></script>
-    <!-- <script type="text/javascript" src="script.js"></script> -->
-    <script>
 
-    </script>
+    <!-- Bundle didn't work, maybe cause of paths -->
+
+    <!-- <script type="text/javascript" src="/dist/scripts/bundle.js"></script> -->
 
     <link rel="stylesheet" type="text/css" href="styles.css">
 
     <style>.active { color: #ff0099; font-weight: bold; }</style>
+
+    <!-- base doesn't work as I expected it to work, 
+        I had to write full path in users.component.js
+        and states also aren't proper (i.e. localhost:8080/search) -->
+
+    <base href="/">
   </head>
 
   <body ng-app="helloworld" ng-controller="helloController">
-    <a ui-sref="hello" ui-sref-active="active">Hello</a>
-    <a ui-sref="about" ui-sref-active="active">About</a>
-    <a ui-sref="more" ui-sref-active="active">More</a>
+    <base href="/index.html">
+
     <ui-view></ui-view>
-    <!-- <input type="text" ng-model="username"> -->
-    <!-- <button type="button" ng-click="helloController.userTest()">Find User</button> -->
-    <!-- <div ng-repeat="number in helloController.arrayOfNone" style="width: 200px; height: 50px; background-color: red;" ng-click="helloController.writeLine()">{{ number }}</div> -->
+
     <users></users>
 
   </body>

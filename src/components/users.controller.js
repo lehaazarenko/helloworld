@@ -7,36 +7,32 @@ angular.module('helloworld').controller('usersController', ['$http', '$state', '
   	repositories: [],
   	issues: [],
   	code: []
-  }
+  };
 
   ctrl.userTest = function() {
     console.log('test');
-  }
+  };
 
 
 
   ctrl.findData = (dataType) => (data) => {
   	console.log('dataType: ', dataType);
-    $state.go('search', {dataType: dataType, data: data});
+    $state.go('search', { dataType, data });
     $http({
-    method: 'GET',
-    // url: `https://api.github.com/users/${username}`
-    url: `https://api.github.com/search/${dataType}?q=${data}` 
-    // header: {
-    // 	Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
-    // }
-  }).then((response) => {
-      // this callback will be called asynchronously
-      // when the response is available
-      ctrl.recievedData[dataType] = response.data.items;
-      console.log(ctrl.recievedData);
-      console.log(response);
-    }, (error) => {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-      console.log(error);
-    });
-  }
+      method: 'GET',
+      // url: `https://api.github.com/users/${username}`
+      url: `https://api.github.com/search/${dataType}?q=${data}&per_page=100`
+      // header: {
+      // 	Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+      // }
+    }).then((response) => {
+        ctrl.recievedData[dataType] = response.data.items;
+        console.log(ctrl.recievedData);
+        console.log(response);
+      }, (error) => {
+        console.log(error);
+      });
+    };
 
   ctrl.findUsers = ctrl.findData('users');
   ctrl.findRepos = ctrl.findData('repositories');

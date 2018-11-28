@@ -1,5 +1,5 @@
 angular.module('helloworld').component('users', {
 	controller: 'usersController',
 	controllerAs: 'ctrl',
-	templateUrl: 'src/components/users.view.html'
+	templateUrl: '/angular/at2/helloworld/src/components/users.view.html'
 });
