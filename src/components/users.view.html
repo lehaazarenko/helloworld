@@ -1,6 +1,3 @@
-<ul>
-	<li ng-repeat="number in ctrl.arrayOfNone">{{number}}</li>
-</ul>
 <div class="inputs">
 	<br>
 	<br>
@@ -24,6 +21,6 @@
 
 <div ng-if="ctrl.recievedData.users.length !== 0" class="users">
 	<div ng-repeat="user in ctrl.recievedData.users" class="user">
-		<span class="user-login">{{user.login}}
+		<a href="{{user.html_url}}">{{user.login}}</a>
 	</div>
 </div>

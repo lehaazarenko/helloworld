@@ -9,8 +9,6 @@ angular.module('helloworld').controller('usersController', ['$http', function($h
   	code: []
   }
 
-  ctrl.arrayOfNone = [1, 2, 3, 4];
-
   ctrl.userTest = function() {
     console.log('test');
   }
