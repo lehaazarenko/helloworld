@@ -1,34 +1,45 @@
 const myApp = angular.module('helloworld', ['ui.router']);
 
-myApp.config(function($stateProvider) {
+myApp.config(function($stateProvider, $urlRouterProvider) {
   const helloState = {
     name: 'hello',
-    url: '/hello',
+    url: '/angular/at2/helloworld/hello',
     template: '<h3>hello world!</h3>'
   }
 
   const aboutState = {
     name: 'about',
-    url: '/about',
+    url: '/angular/at2/helloworld/about',
     template: '<h3>Its the UI-Router hello world app!</h3>'
   }
 
   const someMoreState = {
     name: 'more',
-    url: '/more',
+    url: '/angular/at2/helloworld/more',
     template: '<h3>Get some more</h3>'
-  }
-
-  const search = {
-    name: 'search',
-    url: '/search',
-    template: '<span>kek</span>'
   }
 
   $stateProvider.state(helloState);
   $stateProvider.state(aboutState);
   $stateProvider.state(someMoreState);
-  $stateProvider.state(search);
+
+  $stateProvider.state('search', {
+    url: '/angular/at2/helloworld/search/{dataType}/{data}',
+    // controller: 'usersController',
+    params: {
+      dataType: 'users',
+      data: ''
+    }
+    // controller: function($stateParams) {
+    //   console.log($stateParams.login);
+    //   console.log($stateParams.dataType);
+    // }
+  });
+
+  $urlRouterProvider.when('/angular/at2/helloworld/console', function() {
+    console.log('Console output');
+  });
+
 });
 
 

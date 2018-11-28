@@ -1,4 +1,4 @@
-angular.module('helloworld').controller('usersController', ['$http', function($http) {
+angular.module('helloworld').controller('usersController', ['$http', '$state', '$stateParams',  function($http, $state, $stateParams) {
 
   const ctrl = this;
 
@@ -13,8 +13,11 @@ angular.module('helloworld').controller('usersController', ['$http', function($h
     console.log('test');
   }
 
+
+
   ctrl.findData = (dataType) => (data) => {
   	console.log('dataType: ', dataType);
+    $state.go('search', {dataType: dataType, data: data});
     $http({
     method: 'GET',
     // url: `https://api.github.com/users/${username}`
