@@ -1,11 +1,11 @@
-<!-- <div class="inputs">
+<div class="inputs">
     <br>
     <br>
     <input type="text" ng-model="username">
-    <button type="button" ng-click="ctrl.findUsers(username)">Find Users</button>
+    <button type="button" ng-click="ctrl.findData('users')(username)">Find Users</button>
     <br>
     <br>
-    <input type="text" ng-model="repo">
+    <!-- <input type="text" ng-model="repo">
     <button type="button" ng-click="ctrl.findRepos(repo)">Find Repos</button>
     <br>
     <br>
@@ -16,13 +16,5 @@
     <input type="text" ng-model="issue">
     <button type="button" ng-click="ctrl.findIssues(issue)">Find Issues</button>
     <br>
-    <br>
-</div> -->
-
-<div ng-if="ctrl.recievedData.users.length > 0" class="users">
-    <div ng-repeat="user in ctrl.recievedData.users" class="user">
-        <a href="{{user.html_url}}">{{user.login}}</a>
-    </div>
+    <br> -->
 </div>
-
-<p>{{ctrl.testValue}}</p>

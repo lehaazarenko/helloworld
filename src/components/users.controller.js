@@ -1,4 +1,8 @@
-angular.module('helloworld').controller('usersController', ['$http', '$state', '$stateParams',  function($http, $state, $stateParams) {
+angular.module('helloworld').controller('usersController', ['$http', '$scope', '$state', '$stateParams',  function($http, $scope, $state, $stateParams) {
+
+  (function() {
+    console.log('already in usersController');
+  })();
 
   const ctrl = this;
 
@@ -9,33 +13,22 @@ angular.module('helloworld').controller('usersController', ['$http', '$state', '
   	code: []
   };
 
-  ctrl.testValue = "Test";
-
-  ctrl.userTest = function() {
-    console.log('test');
-  };
-
   ctrl.findData = (dataType) => (data) => {
   	console.log('dataType: ', dataType);
-    $state.go('search', { dataType, data });
+    console.log($stateParams);
     $http({
       method: 'GET',
       url: `https://api.github.com/search/${dataType}?q=${data}&per_page=10`
     }).then((response) => {
         ctrl.recievedData[dataType] = response.data.items;
         console.log(ctrl.recievedData);
-        console.log(ctrl.recievedData.users.length);
-        // console.log(response);
       }, (error) => {
         console.log(error);
       });
     };
 
-  ctrl.findUsers = ctrl.findData('users');
-  ctrl.findRepos = ctrl.findData('repositories');
-  ctrl.findCodes = ctrl.findData('code');
-  ctrl.findIssues = ctrl.findData('issues');
-  
+    ctrl.findData($stateParams.dataType)($stateParams.data);
+
 }]);
 
 // https://api.github.com/search/users?q=leha

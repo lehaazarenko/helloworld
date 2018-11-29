@@ -1,17 +1,23 @@
 angular.module('helloworld').config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state('search', {
-    url: '/search/{dataType}/{data}',
+    url: '/search',
+    template: '<search></search>'
+  })
+  .state('search.users', {
+    url: '/{dataType}/{data}',
     params: {
       dataType: 'users',
       data: ''
     },
-    template: '<users></users>',
-    controller: 'usersController'
-  });
-
-  $stateProvider.state('home', {
-    url: '/',
     template: '<users></users>'
-  });
+  })
+  // .state('custom', {
+  //   url: '/{dataType}/{data}',
+  //   params: {
+  //     dataType: 'users',
+  //     data: ''
+  //   },
+  //   template: '<users></users>'
+  // });
 });
