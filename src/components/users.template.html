@@ -1,24 +1,3 @@
-<!-- <div class="inputs">
-    <br>
-    <br>
-    <input type="text" ng-model="username">
-    <button type="button" ng-click="ctrl.findUsers(username)">Find Users</button>
-    <br>
-    <br>
-    <input type="text" ng-model="repo">
-    <button type="button" ng-click="ctrl.findRepos(repo)">Find Repos</button>
-    <br>
-    <br>
-    <input type="text" ng-model="code">
-    <button type="button" ng-click="ctrl.findCodes(code)">Find Codes</button>
-    <br>
-    <br>
-    <input type="text" ng-model="issue">
-    <button type="button" ng-click="ctrl.findIssues(issue)">Find Issues</button>
-    <br>
-    <br>
-</div> -->
-
 <div ng-if="usersCtrl.recievedData.users.length > 0" class="users">
     <div ng-repeat="user in usersCtrl.recievedData.users" class="user">
         <a href="{{user.html_url}}">{{user.login}}</a>
