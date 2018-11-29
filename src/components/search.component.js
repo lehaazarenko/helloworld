@@ -1,5 +1,5 @@
 angular.module('helloworld').component('search', {
 	controller: 'searchController',
-	controllerAs: 'ctrl',
+	controllerAs: 'searchCtrl',
 	templateUrl: 'components/search.template.html'
 });

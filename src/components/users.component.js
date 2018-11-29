@@ -1,5 +1,5 @@
 angular.module('helloworld').component('users', {
 	controller: 'usersController',
-	controllerAs: 'ctrl',
+	controllerAs: 'usersCtrl',
 	templateUrl: '<div>Hello</div>'
 });

@@ -11,13 +11,5 @@ angular.module('helloworld').config(function($stateProvider, $urlRouterProvider)
       data: ''
     },
     template: '<users></users>'
-  })
-  // .state('custom', {
-  //   url: '/{dataType}/{data}',
-  //   params: {
-  //     dataType: 'users',
-  //     data: ''
-  //   },
-  //   template: '<users></users>'
-  // });
+  });
 });

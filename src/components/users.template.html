@@ -19,8 +19,8 @@
     <br>
 </div> -->
 
-<div ng-if="ctrl.recievedData.users.length > 0" class="users">
-    <div ng-repeat="user in ctrl.recievedData.users" class="user">
+<div ng-if="usersCtrl.recievedData.users.length > 0" class="users">
+    <div ng-repeat="user in usersCtrl.recievedData.users" class="user">
         <a href="{{user.html_url}}">{{user.login}}</a>
     </div>
 </div>
