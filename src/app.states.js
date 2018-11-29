@@ -3,7 +3,7 @@ angular.module('helloworld').config(function($stateProvider, $urlRouterProvider)
   $stateProvider
     .state('search', {
       url: '/search',
-      template: '<search></search>'
+      template: '<search></search><ui-view></ui-view>'
     })
     .state('search.users', {
       url: '/{dataType}/{data}',
@@ -12,5 +12,13 @@ angular.module('helloworld').config(function($stateProvider, $urlRouterProvider)
         data: ''
       },
       template: '<users></users>'
+    })
+    .state('search.user-details', {
+      url: '/user-details/{username}',
+      params: {
+        user: {},
+        username: ''
+      },
+      template: '<user-details></user-details>'
     });
 });

@@ -1,9 +1,5 @@
 angular.module('helloworld').controller('usersController', ['$http', '$scope', '$state', '$stateParams',  function($http, $scope, $state, $stateParams) {
 
-  (function() {
-    console.log('already in usersController');
-  })();
-
   const ctrl = this;
 
   ctrl.recievedData = {
@@ -18,7 +14,7 @@ angular.module('helloworld').controller('usersController', ['$http', '$scope', '
     console.log($stateParams);
     $http({
       method: 'GET',
-      url: `https://api.github.com/search/${dataType}?q=${data}&per_page=10`
+      url: `https://api.github.com/search/${dataType}?q=${data}&per_page=15`
     }).then((response) => {
         ctrl.recievedData[dataType] = response.data.items;
         console.log(ctrl.recievedData);
@@ -26,6 +22,11 @@ angular.module('helloworld').controller('usersController', ['$http', '$scope', '
         console.log(error);
       });
     };
+
+    ctrl.showUserDetails = (user) => {
+      console.log(user);
+      $state.go('search.user-details', { user: user, username: user.login });
+    }
 
     ctrl.findData($stateParams.dataType)($stateParams.data);
 

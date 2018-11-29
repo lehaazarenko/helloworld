@@ -1,7 +1,7 @@
 <div ng-if="usersCtrl.recievedData.users.length > 0" class="users">
     <div ng-repeat="user in usersCtrl.recievedData.users" class="user">
-        <a href="{{user.html_url}}">{{user.login}}</a>
+        <!-- <a href="{{user.html_url}}">{{user.login}}</a><br> -->
+        <button type="button" ng-click="usersCtrl.showUserDetails(user)">Show {{user.login}}</button>
+        <!-- <a href="/kek">{{user.login}}</a> -->
     </div>
 </div>
-
-<p>{{ctrl.testValue}}</p>

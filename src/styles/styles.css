@@ -19,8 +19,9 @@
 .user {
 	display: flex;
 	justify-content: center;
-	height: 200px;
-	width: 400px;
+	align-items: center;
+	height: 100px;
+	width: 200px;
 	border-radius: 5%;
 	border: 5px solid rgba(0,0,0,0.2);
 	margin-bottom: 20px;
@@ -46,4 +47,26 @@ button:hover {
 	cursor: pointer;
 	background-color: #c3c3c3;
 	color: white;
+}
+
+.user-details-card {
+	width: 200px;
+	padding: 20px;
+	background-color: lightblue;
+	margin: 20px auto;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.user-details-card img {
+	width: 100px;
+	height: 100px;
+}
+
+.user-details-card-capture {
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
 }
