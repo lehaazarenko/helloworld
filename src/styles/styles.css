@@ -70,3 +70,37 @@ button:hover {
 	text-align: center;
 	margin-top: 10px;
 }
+
+dir-pagination-controls {
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+dir-pagination-controls > ul {
+	list-style-type: none;
+	display: flex;
+}
+
+dir-pagination-controls > ul > li {
+	
+}
+
+dir-pagination-controls > ul > li > a {
+	text-decoration: none;width: 20px; 
+	height: 20px;
+	margin: 5px;
+	border-radius: 5px;
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.5s;
+	color: black;
+}
+
+dir-pagination-controls > ul > li > a:hover {
+	background-color: #020202;
+	color: #f2f2f2;
+}

@@ -1,7 +1,12 @@
 <div ng-if="usersCtrl.recievedData.users.length > 0" class="users">
-    <div ng-repeat="user in usersCtrl.recievedData.users" class="user">
-        <!-- <a href="{{user.html_url}}">{{user.login}}</a><br> -->
+	<input style="width: 80%; margin: 20px;" type="text" name="userFilter" ng-model="userFilter">
+    <!-- <div ng-repeat="user in usersCtrl.recievedData.users | filter: userFilter" class="user"> -->
+    <div dir-paginate="user in usersCtrl.recievedData.users | itemsPerPage: 5 | filter: userFilter" class="user">
         <button type="button" ng-click="usersCtrl.showUserDetails(user)">Show {{user.login}}</button>
-        <!-- <a href="/kek">{{user.login}}</a> -->
     </div>
+    <dir-pagination-controls
+    [max-size="5"]
+    [direction-links="true"]
+    [boundary-links="true"]>
+    </dir-pagination-controls>
 </div>

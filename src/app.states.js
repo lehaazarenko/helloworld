@@ -6,10 +6,12 @@ angular.module('helloworld').config(function($stateProvider, $urlRouterProvider)
       template: '<search></search><ui-view></ui-view>'
     })
     .state('search.users', {
-      url: '/{dataType}/{data}',
+      url: '/{dataType}/{data}/{pageNumber}',
+      // url: '/{dataType}/{data}',
       params: {
         dataType: 'users',
-        data: ''
+        data: '',
+        pageNumber: '1'
       },
       template: '<users></users>'
     })

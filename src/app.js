@@ -1,1 +1,1 @@
-const myApp = angular.module('helloworld', ['ui.router']);
+const myApp = angular.module('helloworld', ['ui.router', 'angularUtils.directives.dirPagination']);

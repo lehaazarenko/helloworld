@@ -9,12 +9,15 @@ angular.module('helloworld').controller('usersController', ['$http', '$scope', '
   	code: []
   };
 
-  ctrl.findData = (dataType) => (data) => {
+  ctrl.findData = (dataType) => (data, pageNumber) => {
+  // ctrl.findData = (dataType) => (data) => {
   	console.log('dataType: ', dataType);
     console.log($stateParams);
+    // $stateParams.pageNumber = $stateParams.pageNumber ? 1 : $stateParams.pageNumber;
     $http({
       method: 'GET',
-      url: `https://api.github.com/search/${dataType}?q=${data}&per_page=15`
+      url: `https://api.github.com/search/${dataType}?q=${data}&page=${pageNumber}&per_page=all`
+      // url: `https://api.github.com/search/${dataType}?q=${data}&per_page=all`
     }).then((response) => {
         ctrl.recievedData[dataType] = response.data.items;
         console.log(ctrl.recievedData);
@@ -28,7 +31,8 @@ angular.module('helloworld').controller('usersController', ['$http', '$scope', '
       $state.go('search.user-details', { user: user, username: user.login });
     }
 
-    ctrl.findData($stateParams.dataType)($stateParams.data);
+    ctrl.findData($stateParams.dataType)($stateParams.data, $stateParams.pageNumber);
+    // ctrl.findData($stateParams.dataType)($stateParams.data);
 
 }]);
 

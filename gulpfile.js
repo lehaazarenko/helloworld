@@ -18,6 +18,7 @@ const conf = {
   jsExternal: [
     './node_modules/angular/angular.js',
     './node_modules/@uirouter/angularjs/release/angular-ui-router.js',
+    './src/vendors/dirPagination.js'
   ],
   cssExternal: [
 
