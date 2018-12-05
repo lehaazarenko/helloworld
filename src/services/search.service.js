@@ -7,25 +7,21 @@
 
         const calService = {};
 
-        calService.init = () => {
-            return $q((resolve, reject) => {
-                calService.recievedData = {
-                users: [],
-                repositories: [],
-                issues: [],
-                code: []
-            };
-
-            calService.numberOfPages = 0;
-            calService.pages = [];
-
-            calService.params = $stateParams;
-            calService.params.pageNumber = parseInt(calService.params.pageNumber);
-            calService.findData();
-            console.log('find data: ', calService);
-            resolve(calService);    
-            });
+        calService.recievedData = {
+            users: [],
+            repositories: [],
+            issues: [],
+            code: []
         };
+
+        calService.pagesData = {
+            numberOfPages: 0,
+            pages: []
+        };
+
+        calService.params = $stateParams;
+        calService.params.pageNumber = parseInt(calService.params.pageNumber);
+        console.log('calService.params', calService.params);
 
         calService.findData = () => {
             console.log($stateParams);
@@ -33,7 +29,7 @@
                 method: 'GET',
                 url: `https://api.github.com/search/${calService.params.dataType}?q=${calService.params.data}&page=${calService.params.pageNumber}&per_page=10`
             }).then((response) => {
-                calService.numberOfPages = Math.ceil(response.data.total_count / 10);
+                calService.pagesData.numberOfPages = Math.ceil(response.data.total_count / 10);
                 calService.initPages();
                 calService.recievedData[calService.params.dataType] = response.data.items;
             }, (error) => {
@@ -47,10 +43,10 @@
         }
 
         calService.initPages = () => {
-            calService.pages = [];
+            calService.pagesData.pages = [];
             // debugger;
-            for (let i = 0; i < (calService.numberOfPages < 101 ? calService.numberOfPages : 100); i++) {
-                calService.pages.push(i + 1);
+            for (let i = 0; i < (calService.pagesData.numberOfPages < 101 ? calService.pagesData.numberOfPages : 100); i++) {
+                calService.pagesData.pages.push(i + 1);
             }
         };
 

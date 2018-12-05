@@ -6,7 +6,7 @@
     </div>	
     </div>
     
-    <select ng-options="page as page for page in usersCtrl.pages" ng-model="usersCtrl.params.pageNumber" ng-change="usersCtrl.update()"></select>
+    <select ng-options="page as page for page in usersCtrl.pagesData.pages" ng-model="usersCtrl.params.pageNumber" ng-change="usersCtrl.update()"></select>
     <!-- <div>
 	    <button class="pagination-button">Prev</button>
 	    <button class="pagination-button">Next</button>

@@ -49,6 +49,10 @@ button:hover {
 	color: white;
 }
 
+select {
+	outline: none;
+}
+
 .user-details-card {
 	width: 200px;
 	padding: 20px;
