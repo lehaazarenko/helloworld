@@ -1,0 +1,9 @@
+# Editors
+.idea
+
+# Vendor libraries
+node_modules
+bower_components
+
+#Build folder
+dist

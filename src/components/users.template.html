@@ -1,0 +1,14 @@
+<div ng-if="usersCtrl.recievedData.users.length > 0">
+	<!-- <input style="width: 80%; margin: 20px;" type="text" name="userFilter" ng-model="userFilter"> -->
+    <div class="users">
+    	<div ng-repeat="user in usersCtrl.recievedData.users" class="user">
+        <button type="button" ng-click="usersCtrl.showUserDetails(user)">Show {{user.login}}</button>
+    </div>	
+    </div>
+    
+    <select ng-options="page as page for page in usersCtrl.pagesData.pages" ng-model="usersCtrl.params.pageNumber" ng-change="usersCtrl.update()"></select>
+    <!-- <div>
+	    <button class="pagination-button">Prev</button>
+	    <button class="pagination-button">Next</button>
+	</div> -->
+</div>
