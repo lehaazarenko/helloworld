@@ -1,12 +1,14 @@
-<div ng-if="usersCtrl.recievedData.users.length > 0" class="users">
-	<input style="width: 80%; margin: 20px;" type="text" name="userFilter" ng-model="userFilter">
-    <!-- <div ng-repeat="user in usersCtrl.recievedData.users | filter: userFilter" class="user"> -->
-    <div dir-paginate="user in usersCtrl.recievedData.users | itemsPerPage: 5 | filter: userFilter" class="user">
+<div ng-if="usersCtrl.recievedData.users.length > 0">
+	<!-- <input style="width: 80%; margin: 20px;" type="text" name="userFilter" ng-model="userFilter"> -->
+    <div class="users">
+    	<div ng-repeat="user in usersCtrl.recievedData.users" class="user">
         <button type="button" ng-click="usersCtrl.showUserDetails(user)">Show {{user.login}}</button>
+    </div>	
     </div>
-    <dir-pagination-controls
-    [max-size="5"]
-    [direction-links="true"]
-    [boundary-links="true"]>
-    </dir-pagination-controls>
+    
+    <select ng-options="page as page for page in usersCtrl.pages" ng-model="usersCtrl.params.pageNumber" ng-change="usersCtrl.update()"></select>
+    <!-- <div>
+	    <button class="pagination-button">Prev</button>
+	    <button class="pagination-button">Next</button>
+	</div> -->
 </div>
