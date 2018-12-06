@@ -3,6 +3,10 @@
   angular.module('helloworld').config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
+      .state('default', {
+        url: '/',
+        redirectTo: 'search'
+      })
       .state('search', {
         url: '/search',
         template: '<search></search><ui-view></ui-view>'
@@ -54,6 +58,10 @@
           username: ''
         },
         template: '<user-details></user-details>'
+      })
+      .state('search.page-not-found', {
+        url: '/page-not-found',
+        template: '<h2 class="not-found">Page not found</h2>'
       });
   });
 })();

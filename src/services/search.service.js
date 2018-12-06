@@ -42,6 +42,10 @@
             $state.go('search.user-details', { user: user, username: user.login });
         }
 
+        calService.isNumberOfPagesValid = (number) => {
+            return number < 101;
+        };
+
         calService.initPages = () => {
             calService.pagesData.pages = [];
             // debugger;
