@@ -2,6 +2,8 @@
 
   angular.module('helloworld').config(function($stateProvider, $urlRouterProvider) {
 
+    $urlRouterProvider.otherwise('/search');
+
     $stateProvider
       .state('default', {
         url: '/',
