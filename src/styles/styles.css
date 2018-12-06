@@ -1,0 +1,153 @@
+f* {
+	margin: 0;
+	padding: 0;
+}
+
+.inputs {
+	width: 400px;
+	text-align: center;
+	margin: 20px auto;
+}
+
+.users, 
+.repos,
+.issues,
+.codes {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.user, 
+.repo,
+.issue,
+.code {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+	width: 40%;
+	border: 2px solid rgba(0,0,0,0.2);
+	margin-bottom: 20px;
+	background-color: #f4f4f4;
+}
+
+input {
+	height: 30px;
+	outline: none;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+button {
+	height: 30px;
+	width: 100px;
+	border: 0;
+	background-color: #f4f4f4;
+	transition: 0.5s;
+	outline: none;
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: #c3c3c3;
+	color: white;
+}
+
+select {
+	outline: none;
+	margin: 0 auto;
+}
+
+.buttons-wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin: 40px 0;
+}
+
+.buttons-wrapper button {
+	width: 100px;
+	margin: 0 10px;
+}
+
+.select-wrapper {
+	width: 100%;
+	text-align: center;
+}
+
+.select-wrapper select {
+	width: 60px;
+	font-size: 18px;
+	height: 35px;
+	background-color: #eaeaea;
+	border-radius: 15px;
+}
+
+.select-wrapper select option {
+	transition: 0.3s;
+}
+
+.select-wrapper select option:hover {
+	background-color: black;
+	color: white;
+}
+
+
+
+.user-details-card {
+	width: 200px;
+	padding: 20px;
+	background-color: lightblue;
+	margin: 20px auto;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.user-details-card img {
+	width: 100px;
+	height: 100px;
+}
+
+.user-details-card-capture {
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+}
+
+dir-pagination-controls {
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+dir-pagination-controls > ul {
+	list-style-type: none;
+	display: flex;
+}
+
+dir-pagination-controls > ul > li {
+	
+}
+
+dir-pagination-controls > ul > li > a {
+	text-decoration: none;width: 20px; 
+	height: 20px;
+	margin: 5px;
+	border-radius: 5px;
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.5s;
+	color: black;
+}
+
+dir-pagination-controls > ul > li > a:hover {
+	background-color: #020202;
+	color: #f2f2f2;
+}

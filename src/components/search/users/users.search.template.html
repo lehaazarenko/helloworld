@@ -1,0 +1,11 @@
+<div ng-if="usersSearchCtrl.recievedData.users.length > 0">
+    <div class="users">
+    	<div ng-repeat="user in usersSearchCtrl.recievedData.users" class="user">
+        <button type="button" ng-click="usersSearchCtrl.showUserDetails(user)">Show {{user.login}}</button>
+    </div>	
+    </div>
+    
+    <div class="select-wrapper">
+        <select ng-options="page as page for page in usersSearchCtrl.pagesData.pages" ng-model="usersSearchCtrl.params.pageNumber" ng-change="usersSearchCtrl.update()"></select>
+    </div>
+</div>

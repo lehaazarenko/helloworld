@@ -1,0 +1,11 @@
+<div ng-if="issuesSearchCtrl.recievedData.issues.length > 0">
+    <div class="issues">
+        <div ng-repeat="issue in issuesSearchCtrl.recievedData.issues" class="issue">
+            <a href="{{issue.url}}">{{issue.title ? issue.title : issue.url}}</a>
+        </div>
+    </div>  
+    
+    <div class="select-wrapper">
+        <select ng-options="page as page for page in issuesSearchCtrl.pagesData.pages" ng-model="issuesSearchCtrl.params.pageNumber" ng-change="issuesSearchCtrl.update()"></select>
+    </div>
+</div>

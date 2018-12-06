@@ -1,0 +1,11 @@
+<div ng-if="codeSearchCtrl.recievedData.code.length > 0">
+    <div class="codes">
+        <div ng-repeat="code in codeSearchCtrl.recievedData.issues" class="code">
+            <!-- <a href="{{code.url}}">{{issue.title ? issue.title : issue.url}}</a> -->
+        </div>
+    </div>  
+    
+    <div class="select-wrapper">
+        <select ng-options="page as page for page in codeSearchCtrl.pagesData.pages" ng-model="codeSearchCtrl.params.pageNumber" ng-change="codeSearchCtrl.update()"></select>
+    </div>
+</div>
