@@ -1,0 +1,11 @@
+<div ng-if="repositoriesSearchCtrl.recievedData.repositories.length > 0">
+    <div class="repos">
+        <div ng-repeat="repo in repositoriesSearchCtrl.recievedData.repositories" class="repo">
+            <a href="{{repo.url}}">{{repo.full_name}}</a>
+        </div>
+    </div>  
+    
+    <div class="select-wrapper">
+        <select ng-options="page as page for page in repositoriesSearchCtrl.pagesData.pages" ng-model="repositoriesSearchCtrl.params.pageNumber" ng-change="repositoriesSearchCtrl.update()"></select>
+    </div>
+</div>

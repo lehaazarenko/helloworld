@@ -51,7 +51,7 @@
         };
 
         calService.update = () => {
-            $state.go('search.users', { 
+            $state.go(`search.${calService.params.dataType}`, { 
                 dataType: calService.params.dataType, 
                 data: calService.params.data,  
                 pageNumber: calService.params.pageNumber

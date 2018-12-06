@@ -13,7 +13,8 @@ const conf = {
   dist: './dist/',
   js: [
     './src/app.module.js',
-    './src/**/*.js',
+    './src/**/**/*.js',
+    './src/**/**/**/*.js'
   ],
   jsExternal: [
     './node_modules/angular/angular.js',
@@ -28,6 +29,8 @@ const conf = {
   ],
   templates: [
     './src/**/*.template.html',
+    // './src/components/**/*.template.html',
+    // './src/components/**/**/*.template.html'
   ]
 };
 

@@ -9,14 +9,20 @@ f* {
 	margin: 20px auto;
 }
 
-.users {
+.users, 
+.repos,
+.issues,
+.codes {
 	display: flex;
 	width: 100%;
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
 
-.user {
+.user, 
+.repo,
+.issue,
+.code {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -51,7 +57,44 @@ button:hover {
 
 select {
 	outline: none;
+	margin: 0 auto;
 }
+
+.buttons-wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin: 40px 0;
+}
+
+.buttons-wrapper button {
+	width: 100px;
+	margin: 0 10px;
+}
+
+.select-wrapper {
+	width: 100%;
+	text-align: center;
+}
+
+.select-wrapper select {
+	width: 60px;
+	font-size: 18px;
+	height: 35px;
+	background-color: #eaeaea;
+	border-radius: 15px;
+}
+
+.select-wrapper select option {
+	transition: 0.3s;
+}
+
+.select-wrapper select option:hover {
+	background-color: black;
+	color: white;
+}
+
+
 
 .user-details-card {
 	width: 200px;

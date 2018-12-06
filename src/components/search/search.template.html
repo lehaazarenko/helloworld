@@ -1,0 +1,13 @@
+<div class="inputs">
+    <br>
+    <br>
+    <input type="text" ng-model="searchCtrl.data">
+    <div class="buttons-wrapper">
+    	<button type="button" ng-click="searchCtrl.findData('users')(searchCtrl.data)">Find Users</button>
+	    <button type="button" ng-click="searchCtrl.findData('repositories')(searchCtrl.data)">Find Repositories</button>
+	    <button type="button" ng-click="searchCtrl.findData('issues')(searchCtrl.data)">Find Issues</button>
+	    <!-- <button type="button" ng-click="searchCtrl.findData('code')(searchCtrl.data)">Find Code</button>	 -->
+    </div>
+    <br>
+    <br>
+</div>
