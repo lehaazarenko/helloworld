@@ -54,10 +54,10 @@
         template: '<code-search></code-search>'
       })
       .state('search.user-details', {
-        url: '/user-details/{username}',
+        url: '/user-details/{data}',
         params: {
-          user: {},
-          username: ''
+          dataType: 'users',
+          data: ''
         },
         template: '<user-details></user-details>'
       })

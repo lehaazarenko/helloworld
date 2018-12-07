@@ -3,7 +3,7 @@
 	angular.module('helloworld').component('userDetails', {
 		controller: 'userDetailsController',
 		controllerAs: 'userDetailsCtrl',
-		templateUrl: 'components/user-details.template.html'
+		templateUrl: 'components/user-details/user-details.template.html'
 	});
 
 })();

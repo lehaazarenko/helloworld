@@ -38,9 +38,28 @@
             });
         };    
 
+        calService.findUser = () => {
+            console.log('findUser: ', $stateParams);
+            const url = `https://api.github.com/search/${calService.params.dataType}?q=${calService.params.data}+user:${calService.params.data}`;
+            let defer = $q.defer();
+            $http({
+                method: 'GET',
+                url: url
+            }).then((response) => {
+                console.log('findUser response: ', response);
+                calService.userData = response.data.items[0];
+                console.log('userData on service: ', calService.userData);
+                defer.resolve(response);
+            }, (error) => {
+                console.log(error);
+                defer.reject(error);
+            });
+            return defer.promise;
+        };
+
         calService.showUserDetails = (user) => {
             console.log(user);
-            $state.go('search.user-details', { user: user, username: user.login });
+            $state.go('search.user-details', { data: user.login });
         }
 
         calService.isNumberOfPagesValid = (number) => {
