@@ -25,9 +25,10 @@
 
         calService.findData = () => {
             console.log($stateParams);
+            const url = `https://api.github.com/search/${calService.params.dataType}?q=${calService.params.data}&page=${calService.params.pageNumber}&per_page=10`
             $http({
                 method: 'GET',
-                url: `https://api.github.com/search/${calService.params.dataType}?q=${calService.params.data}&page=${calService.params.pageNumber}&per_page=10`
+                url: url
             }).then((response) => {
                 calService.pagesData.numberOfPages = Math.ceil(response.data.total_count / 10);
                 calService.initPages();

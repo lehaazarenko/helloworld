@@ -20,6 +20,7 @@
     function init() {
         if (!ctrl.isNumberOfPagesValid($stateParams.pageNumber)) {
           $state.go('search.page-not-found');
+          console.log('isNumberOfPagesValid: ', isNumberOfPagesValid);
         } else {
           ctrl.recievedData = {
             users: [],
@@ -37,7 +38,7 @@
           ctrl.recievedData = searchFactory.recievedData;
           ctrl.pagesData = searchFactory.pagesData;    
 
-          if (ctrl.params.pageNumber > ctrl.pagesData.numberOfPages) {
+          if (ctrl.params.pageNumber > ctrl.pagesData.numberOfPages && ctrl.pagesData.numberOfPages !== 0) {
             $state.go('search.page-not-found');
           }
 
