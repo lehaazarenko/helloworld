@@ -151,3 +151,7 @@ dir-pagination-controls > ul > li > a:hover {
 	background-color: #020202;
 	color: #f2f2f2;
 }
+
+.not-found {
+	text-align: center;
+}
