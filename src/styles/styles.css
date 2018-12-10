@@ -155,3 +155,15 @@ dir-pagination-controls > ul > li > a:hover {
 .not-found {
 	text-align: center;
 }
+
+.pagination-nav-wrapper {
+	margin-top: 20px;
+	width: 100px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+}
+
+.pagination-nav-wrapper button {
+	width: 45%;
+}

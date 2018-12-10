@@ -15,7 +15,6 @@
       })
       .state('search.users', {
         url: '/users/{data}/{pageNumber}',
-        // url: '/{dataType}/{data}',
         params: {
           dataType: 'users',
           data: '',
@@ -25,7 +24,6 @@
       })
       .state('search.repositories', {
         url: '/repositories/{data}/{pageNumber}',
-        // url: '/{dataType}/{data}',
         params: {
           dataType: 'repositories',
           data: '',
@@ -35,7 +33,6 @@
       })
       .state('search.issues', {
         url: '/issues/{data}/{pageNumber}',
-        // url: '/{dataType}/{data}',
         params: {
           dataType: 'issues',
           data: '',
@@ -45,7 +42,6 @@
       })
       .state('search.code', {
         url: '/code/{data}/{pageNumber}',
-        // url: '/{dataType}/{data}',
         params: {
           dataType: 'code',
           data: '',
@@ -54,7 +50,7 @@
         template: '<code-search></code-search>'
       })
       .state('search.user-details', {
-        url: '/user-details/{data}',
+        url: '/{dataType}/{data}/user-details/{index}',
         params: {
           dataType: 'users',
           data: ''

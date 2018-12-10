@@ -6,21 +6,22 @@
 
     const ctrl = this;
 
-    console.log('factory: ',searchFactory);
-    console.log('in users controller');
+    // console.log('factory: ',searchFactory);
+    // console.log('in users controller');
 
     ctrl.findData = searchFactory.findData;
     ctrl.showUserDetails = searchFactory.showUserDetails;
+    // console.log('showUserDetails: ', ctrl.showUserDetails);
     ctrl.update = searchFactory.update;
     ctrl.initPages = searchFactory.initPages;
     ctrl.isNumberOfPagesValid = searchFactory.isNumberOfPagesValid;
 
-    console.log('ctrl: ', ctrl);
+    // console.log('ctrl: ', ctrl);
 
     function init() {
         if (!ctrl.isNumberOfPagesValid($stateParams.pageNumber)) {
           $state.go('search.page-not-found');
-          console.log('isNumberOfPagesValid: ', isNumberOfPagesValid);
+          // console.log('isNumberOfPagesValid: ', isNumberOfPagesValid);
         } else {
           ctrl.recievedData = {
             users: [],
@@ -33,7 +34,9 @@
           ctrl.params.pageNumber = parseInt(ctrl.params.pageNumber);
           ctrl.findData();
 
-          console.log('find data: ', ctrl);
+          // console.log('find data: ', ctrl);
+
+          // console.log('pageNumber in usersSearch: ', ctrl.params.pageNumber);
 
           ctrl.recievedData = searchFactory.recievedData;
           ctrl.pagesData = searchFactory.pagesData;    

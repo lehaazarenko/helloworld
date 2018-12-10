@@ -1,7 +1,7 @@
 <div ng-if="usersSearchCtrl.recievedData.users.length > 0">
     <div class="users">
     	<div ng-repeat="user in usersSearchCtrl.recievedData.users" class="user">
-        <button type="button" ng-click="usersSearchCtrl.showUserDetails(user)">Show {{user.login}}</button>
+        <button type="button" ng-click="usersSearchCtrl.showUserDetails($index, usersSearchCtrl.params.pageNumber)">Show {{user.login}}</button>
     </div>	
     </div>
     
