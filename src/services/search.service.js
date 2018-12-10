@@ -21,10 +21,8 @@
 
         calService.params = $stateParams;
         calService.params.pageNumber = parseInt(calService.params.pageNumber);
-        console.log('calService.params', calService.params);
 
         calService.findData = () => {
-            console.log($stateParams);
             const url = `https://api.github.com/search/${calService.params.dataType}?q=${calService.params.data}&page=${calService.params.pageNumber}&per_page=10`
             $http({
                 method: 'GET',
@@ -34,13 +32,60 @@
                 calService.initPages();
                 calService.recievedData[calService.params.dataType] = response.data.items;
             }, (error) => {
-                console.log(error);
+                // console.log(error);
             });
         };    
 
-        calService.showUserDetails = (user) => {
-            console.log(user);
-            $state.go('search.user-details', { user: user, username: user.login });
+        calService.findUser = (index) => {
+            const pageNumber = (index % 10) === 0 ? index / 10 + 1 : Math.ceil(index / 10);
+            const position = index - (pageNumber - 1) * 10;
+            const url = `https://api.github.com/search/${calService.params.dataType}?q=${calService.params.data}&page=${pageNumber}&per_page=10`;//${calService.params.login}`;
+            let defer = $q.defer();
+            $http({
+                method: 'GET',
+                url: url
+            }).then((response) => {
+                calService.userData = response.data.items[position];
+                defer.resolve(response.data.items[position]);
+            }, (error) => {
+                defer.reject(error);
+            });
+            return defer.promise;
+        };
+
+        // calService.isPrev = (index) => {
+        //     return index > 0;
+        // }
+
+        calService.isNext = (index) => {
+            let nextPage;
+            // debugger;
+            const nextIndex = parseInt(index) + 1;
+            if (nextIndex % 10 === 0) {
+                nextPage = nextIndex / 10 + 1;
+            } else {
+                nextPage = Math.ceil(nextIndex / 10);    
+            }
+
+            const position = nextIndex - (nextPage - 1) * 10;
+            const url = `https://api.github.com/search/${calService.params.dataType}?q=${calService.params.data}&page=${nextPage}&per_page=10`;
+            let defer = $q.defer();
+            $http({
+                method: 'GET',
+                url: url
+            }).then((response) => {
+                defer.resolve(response.data.items[position] ? true : false);
+            }, (error) => {
+                defer.reject(error);
+            });
+            return defer.promise;
+        };
+
+        calService.showUserDetails = (index, pageNumber) => {
+            $state.go('search.user-details', { 
+                data: $stateParams.data, 
+                index: (pageNumber - 1) * 10 + index
+            });
         }
 
         calService.isNumberOfPagesValid = (number) => {

@@ -1,22 +1,41 @@
 (function() {
 
 
-  angular.module('helloworld').controller('userDetailsController', ['$state', '$stateParams',  function($state, $stateParams) {
+  angular.module('helloworld').controller('userDetailsController', ['$state', '$stateParams', '$q', 'searchFactory',  function($state, $stateParams, $q, searchFactory) {
 
     const ctrl = this;
+    ctrl.isNext = searchFactory.isNext;
+    ctrl.isNext($stateParams.index).then((response) => {
+        ctrl.isNext = response;
+    }, (error) => {
+        // console.log('isNext error: ', error);
+    });
 
-    ctrl.userData = $stateParams.user;
-    console.log('userData Details: ');
-    console.log(ctrl.userData);
-    console.log('State Details: ');
-    console.log($stateParams);
-    ctrl.kek = 'kek';
+    ctrl.isPrev = $stateParams.index > 0;
 
-    // ctrl.findData = (dataType) => (data) => {
-    //   console.log('dataType: ', dataType);
-    // 	console.log('data: ', data);
-    //   $state.go('search.users', { dataType: dataType, data: data});
-    // };
+
+    ctrl.userData = searchFactory.userData;
+    ctrl.findUser = searchFactory.findUser;
+
+    ctrl.findUser($stateParams.index).then((response) => {
+        ctrl.userData = response;
+    }, (error) => {
+        console.log('kek');
+    });
+
+    ctrl.goToPrev = () => {
+        $state.go('search.user-details', {  
+            data: $stateParams.data, 
+            index: parseInt($stateParams.index) - 1
+        });
+    };
+
+    ctrl.goToNext = () => {
+        $state.go('search.user-details', {  
+            data: $stateParams.data, 
+            index: parseInt($stateParams.index) + 1
+        });
+    };
 
   }]);
 

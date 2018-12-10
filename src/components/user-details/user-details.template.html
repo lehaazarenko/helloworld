@@ -1,4 +1,8 @@
 <div class="user-details-card">
 	<img ng-src="{{userDetailsCtrl.userData.avatar_url}}">
 	<a href="{{userDetailsCtrl.userData.html_url}}" class="user-details-card-capture">{{userDetailsCtrl.userData.login}}</a>
+	<div class="pagination-nav-wrapper">
+		<button ng-click="userDetailsCtrl.goToPrev()" ng-disabled="!userDetailsCtrl.isPrev">Prev</button>
+		<button ng-click="userDetailsCtrl.goToNext()" ng-disabled="!userDetailsCtrl.isNext">Next</button>
+	</div>
 </div>

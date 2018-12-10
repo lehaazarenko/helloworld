@@ -1,13 +1,10 @@
 (function(){
   'use strict';
 
-  // angular.module('helloworld').controller('usersController', ['$http', '$scope', '$state', '$stateParams', 'searchFactory',  function($http, $scope, $state, $stateParams, searchFactory) {
   angular.module('helloworld').controller('usersSearchController', ['$state', '$stateParams', '$q', 'searchFactory',  function($state, $stateParams, $q, searchFactory) {
 
     const ctrl = this;
 
-    console.log('factory: ',searchFactory);
-    console.log('in users controller');
 
     ctrl.findData = searchFactory.findData;
     ctrl.showUserDetails = searchFactory.showUserDetails;
@@ -15,12 +12,9 @@
     ctrl.initPages = searchFactory.initPages;
     ctrl.isNumberOfPagesValid = searchFactory.isNumberOfPagesValid;
 
-    console.log('ctrl: ', ctrl);
-
     function init() {
         if (!ctrl.isNumberOfPagesValid($stateParams.pageNumber)) {
           $state.go('search.page-not-found');
-          console.log('isNumberOfPagesValid: ', isNumberOfPagesValid);
         } else {
           ctrl.recievedData = {
             users: [],
@@ -32,8 +26,6 @@
           ctrl.params = $stateParams;
           ctrl.params.pageNumber = parseInt(ctrl.params.pageNumber);
           ctrl.findData();
-
-          console.log('find data: ', ctrl);
 
           ctrl.recievedData = searchFactory.recievedData;
           ctrl.pagesData = searchFactory.pagesData;    
